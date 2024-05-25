@@ -15,7 +15,7 @@ julia> @test pass(42) do a
        end == cos(42)^2
 Test Passed
 
-# invalidate the overlayed method and make it return `cos∘sin`
+# invalidate the overlayed method and make it return `cos * sin`
 julia> @overlay SinTable sin(x::Union{Float32,Float64}) = cos(x) * @nonoverlay sin(x);
 
 julia> @test pass(42) do a
